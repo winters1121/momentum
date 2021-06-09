@@ -1,11 +1,9 @@
-const a = 5;
-const b = 2;
-let myName = "Sang Wook";
+const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log("hello " + myName + "!");
+// Get Item from Array
+console.log(daysOfWeek[0]);
 
-myName = "SW";
-console.log("hello " + myName + "!");
+// Add one more day to the array
+daysOfWeek.push("holiday");
+
+console.log(daysOfWeek);
