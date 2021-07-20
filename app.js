@@ -1,33 +1,29 @@
-function sayHalo(name, age) {
-  // 인자엔 어떠한 값이 와도 상관없다.
-  console.log("Hello! my name is " + name, "and my age is " + age);
-}
-
-function sayHalo(name, age) {
-  console.log("Hello! my name is", name, "and my age is", age);
-}
-console.log(name); // 함수 안에 있는 인자는 함수 밖에서 호출이 불가능하다. 파이썬으로 예를 들면, return 값을 지정하지 않은 상태처럼. 그래서 함수 밖에서 호출하고 싶다면, 오브젝트 안에서 함수를 선언해서 player.sayHello()처럼 활용가능하다. 맨 밑의 코드 참조.
-
-sayHalo("nico", 36);
-sayHalo("sw", 28);
-sayHalo("nk", 28);
-
-function plus(a, b) {
-  console.log(a + b);
-}
-function divide(a, b) {
-  console.log(a / b);
-}
-
-plus(3, 6);
-divide(60, 2);
-
-const player = {
-  name: "sw",
-  sayHello: function (otherPersons) {
-    console.log("Hello!", otherPersons); // 오브젝트 안에 함수 선언하면 함수 밖에서 함수 호출 가능.
+const calculator = {
+  plus: function (a, b) {
+    return a + b;
+  },
+  minus: function (a, b) {
+    return a - b;
+  },
+  multiple: function (a, b) {
+    return a * b;
+  },
+  divide: function (a, b) {
+    return a / b;
+  },
+  square: function (a, b) {
+    return a ** b;
   },
 };
 
-console.log(player.name);
-player.sayHello("SangWook"); // 변수 player안에 있는 함수 호출
+const plusResult = calculator.plus(3, 6);
+const minusResult = calculator.minus(plusResult, 0);
+const multipleResult = calculator.multiple(10, minusResult);
+const divideResult = calculator.divide(90, plusResult);
+const squareResult = calculator.square(3, 3); // 상호 의존적으로 변수를 인자로 활용가능하다.
+
+// console.log(plusResult);
+// console.log(minusResult);
+// console.log(multipleResult);
+// console.log(divideResult);
+// console.log(squareResult); console.log를 하지 않으면 당연히 값이 자동으로 출력되지 않겠지만, 인터넷 콘솔창에서 plusResult나 minusResult를 적고 누르면 결과값이 나오게 된다.
