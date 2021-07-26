@@ -1,26 +1,21 @@
-const age = parseInt(prompt("How old are you?"));
+// 보통은 id 값보단 className을 사용하거나, 둘다 사용한다.
+// h1 태그를 복사해서 5개로 만들고 class 값을 hello로 지정하겠다.
+// const hellos = document.getElementsByClassName("hello");
+// console.log(hellos);
+// 가끔은 많은 element를 한번에 가지고 와야하는 경우가 있을때, getElementsByClassName 사용!
 
-if (isNaN(age) || age < 0) {
-  console.log("Please write a number");
-} else if (age < 18) {
-  console.log("You are too young.");
-} else if (age >= 18 && age <= 50) {
-  console.log("You can drink!");
-} else if (age > 50 && age <= 80) {
-  console.log("I recommend u. dont drink.");
-} else if (age === 100) {
-  // 코드는 위에서부터 아래로 읽히니까 지금 코드와 바로 밑의 코드는 중복되는 값이니, age가 100인 경우를 따로 적용하고 싶다면 위에다 써줘야 한다. 
-  console.log("whatever you want.");
-} else if (age > 80) {
-  alert("You have the right to remain silent.");
-}
+// h1 하나를 남기고 다 지우고 div 태그로 감싸보자. 대신 hello란 class값을 h1은 없고 div만 가지고 있는 상태에서 이 h1을 가지고 오는 것을 해볼거야.
+// const title = document.getElementsByTagName("h1");
+// console.log(title);
 
-// = 이 한개면 변수에 값을 저장하겠다. 할당하겠다. 라는 의미.
-// === 라면 변수와 그 값을 확인하는 것.
-// !== 은 그 값이 아니다. 즉, NOT이란 의미를 가진 연산자.
+// element를 가져오는 방법 중에 최고는 querySelector와 querySelectorAll 함수야.
 
-// 그렇다면 복잡하게 조건을 걸 수 있을까? 당연히 가능.
-if ((a && b) || (c && d)) {
-} //의 경우, (c && d)가 먼저 계산이 이루어지고 true나 false값이 나오겠지. if문이 true여야 조건문이 시작될 수 있지.
+const title = document.querySelector(".hello h1");
+console.log(title);
+// querySelector란 element를 CSS 방식으로 검색할 수 있어. 즉, hello란 class 내부에 있는 h1을 가지고 올 수 있다는 의미. CSS selector라서 .hello에 있는 h1 태그라는 의미.
 
-// 이제 HTML과 상호작용할 수 있는 파트로 넘어갈 수 있어.
+// 이번엔 .hello안에 h1 형태가 2개 더 있다고 가정해보자. 이때 querySelector를 사용하면 console 창엔 하나의 값만 출력된다.
+// 이 강의에선 querySelector만 사용할 거야. 만약 id를 찾고 싶다하더라도 querySelector를 통해 찾을 수 있으니 걱정말고 CSS에서 id값을 #으로 전달하니까 마찬가지로 querySelector안에 #hello를 적어주면 돼.
+const title = document.querySelector("#hello");
+const title = document.getElementById("hello");
+// 위 2개는 같은 일은 한다고 보면 돼! 근데 hello란 id값을 가진 태그 하위의 form 태그를 가져오고 싶다거나 할땐, querySelector가 가장 효율적으로 활용할 수 있기에 querySelector를 사용하는 것을 추천한다는 것! 왜냐하면 getElement 등은 하위 태그를 소환할 수 없어서 그렇다!
